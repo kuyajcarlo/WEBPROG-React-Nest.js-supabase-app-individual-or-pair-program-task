@@ -1,0 +1,22 @@
+# Render.com Configuration
+# This file makes deploying to Render easier
+
+services:
+  # Backend API Service
+  - type: web
+    name: guestbook-api
+    runtime: docker
+    region: oregon # Change to your preferred region
+    plan: free # or starter ($7/mo) for always-on
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: SUPABASE_URL
+        sync: false # Set manually in Render dashboard
+      - key: SUPABASE_KEY
+        sync: false # Set manually in Render dashboard
+    healthCheckPath: /
