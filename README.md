@@ -1,0 +1,1 @@
+# WEBPROG-React-Nest.js-supabase-app-individual-or-pair-program-task
