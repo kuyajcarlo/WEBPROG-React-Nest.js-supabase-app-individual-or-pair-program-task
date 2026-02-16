@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/api/$1"
+      "destination": "/guestbook-app/backend/main.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/frontend/$1"
+      "destination": "/guestbook-app/frontend/dist/$1"
     }
   ]
 }
