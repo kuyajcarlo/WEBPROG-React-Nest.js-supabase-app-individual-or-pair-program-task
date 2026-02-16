@@ -6,6 +6,6 @@
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "guestbook-app/backend/main.js" },
-    { "source": "/(.*)", "destination": "guestbook-app/frontend/dist/index.html" }
+    { "source": "/(.*)", "destination": "guestbook-app/frontend/$1" }
   ]
 }
