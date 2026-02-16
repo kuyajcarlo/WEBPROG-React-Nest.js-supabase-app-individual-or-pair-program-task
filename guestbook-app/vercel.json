@@ -5,7 +5,7 @@
     { "src": "guestbook-app/frontend/package.json", "use": "@vercel/static-build" }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "guestbook-app/backend/api/$1" },
+    { "source": "/api/(.*)", "destination": "guestbook-app/backend/main.js" },
     { "source": "/(.*)", "destination": "guestbook-app/frontend/dist/$1" }
   ]
 }

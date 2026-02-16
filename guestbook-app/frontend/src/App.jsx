@@ -4,7 +4,6 @@ import.meta.env.VITE_SUPABASE_URL
 
 // Use environment variable for API URL or fallback to the local IP address
 const API_URL = '/api/guestbook';
-
 export default function App() {
   // 1. All state must be inside the function
   const [entries, setEntries] = useState([]);
