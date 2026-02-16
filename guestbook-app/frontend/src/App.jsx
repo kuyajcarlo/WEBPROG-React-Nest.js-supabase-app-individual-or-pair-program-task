@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import.meta.env.VITE_SUPABASE_URL
 
 // Use environment variable for API URL or fallback to the local IP address
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:3000/api/guestbook';
+const API_URL = '/api/guestbook';
 
 export default function App() {
   // 1. All state must be inside the function
