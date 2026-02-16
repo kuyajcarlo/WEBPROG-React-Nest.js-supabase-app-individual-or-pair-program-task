@@ -1,13 +1,11 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "guestbook-app/backend/package.json", "use": "@vercel/node" },
+    { "src": "guestbook-app/frontend/package.json", "use": "@vercel/static-build" }
+  ],
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/guestbook-app/backend/main.js"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
+    { "source": "/api/(.*)", "destination": "guestbook-app/backend/api/$1" },
+    { "source": "/(.*)", "destination": "guestbook-app/frontend/dist/$1" }
   ]
 }
