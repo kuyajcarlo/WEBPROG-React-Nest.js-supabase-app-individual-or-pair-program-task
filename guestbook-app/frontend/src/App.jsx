@@ -66,7 +66,9 @@ export default function App() {
     <div className="container">
       <header className="header">
         <h1>My Profile & Guestbook</h1>
-        <p className="subtitle">Leave a message and let me know you were here! 📝</p>
+ <p className="subtitle">Hi, My name is John Carlo E Baracena,</p>
+
+<p className="subtitle">Leave a message and let me know you were here!</p>
       </header>
 
       {error && (
@@ -94,7 +96,7 @@ export default function App() {
           rows="4"
         />
         <button type="submit" disabled={loading}>
-          {loading ? '✍️ Signing...' : '✨ Sign Guestbook'}
+          {loading ? ' Signing...' : 'Sign Guestbook'}
         </button>
       </form>
 
