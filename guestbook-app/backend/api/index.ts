@@ -12,7 +12,17 @@ async function createApp() {
       AppModule,
       new ExpressAdapter(server),
     );
-    app.enableCors();
+
+    // This ensures your Vercel routes match your local http://localhost:3000/api
+    app.setGlobalPrefix('api'); 
+
+    // Enable CORS so your frontend can talk to this API
+    app.enableCors({
+      origin: '*', 
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true,
+    });
+
     await app.init();
   }
   return app;
