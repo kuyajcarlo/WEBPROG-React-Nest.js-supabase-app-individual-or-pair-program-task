@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import.meta.env.VITE_SUPABASE_URL
 
-// Use environment variable for API URL or fallback to the local IP address
-const API_URL = '/api/guestbook';
+// 1. Updated: Use the Vercel Environment Variable for the base URL
+// It will use your Backend URL in production and localhost:3000 during local dev
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = `${BASE_URL}/api/guestbook`;
+
 export default function App() {
-  // 1. All state must be inside the function
   const [entries, setEntries] = useState([]);
   const [form, setForm] = useState({ name: '', message: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // 2. Data loading logic
   const load = async () => {
     try {
       setError(null);
@@ -29,7 +29,6 @@ export default function App() {
     load();
   }, []);
 
-  // 3. Form submission logic
   const save = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -42,7 +41,7 @@ export default function App() {
       });
       if (!res.ok) throw new Error('Failed to save entry');
       setForm({ name: '', message: '' });
-      await load(); // Reload list after saving
+      await load(); 
     } catch (error) {
       console.error('Error saving entry:', error);
       setError('Failed to save entry. Please try again.');
@@ -50,7 +49,6 @@ export default function App() {
     setLoading(false);
   };
 
-  // 4. Delete logic
   const remove = async (id) => {
     if (!confirm('Are you sure you want to delete this entry?')) return;
     
@@ -58,14 +56,13 @@ export default function App() {
       setError(null);
       const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Failed to delete entry');
-      await load(); // Reload list after deleting
+      await load(); 
     } catch (error) {
       console.error('Error deleting entry:', error);
       setError('Failed to delete entry. Please try again.');
     }
   };
 
-  // 5. The return statement is now safely inside the App function
   return (
     <div className="container">
       <header className="header">
@@ -141,7 +138,7 @@ export default function App() {
       </div>
 
       <footer className="footer">
-        <p>Built with React, Nest.js & Supabase  blue_heart</p>
+        <p>Built with React, Nest.js & Supabase 💙</p>
       </footer>
     </div>
   );
