@@ -4,8 +4,7 @@ import './App.css';
 // 1. Updated: Use the Vercel Environment Variable for the base URL
 // It will use your Backend URL in production and localhost:3000 during local dev
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-const API_URL = `${BASE_URL}/api/guestbook`;
-
+const API_URL = `/api/guestbook`;
 export default function App() {
   const [entries, setEntries] = useState([]);
   const [form, setForm] = useState({ name: '', message: '' });
