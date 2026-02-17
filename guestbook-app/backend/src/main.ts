@@ -10,11 +10,7 @@ async function bootstrap() {
 
   // Enable CORS for frontend access
 app.enableCors({
-  origin: [
-    'http://localhost:5173',
-    'https://webprog-react-nest-js-supabase-app-nine.vercel.app' // Add your frontend URL here!
-  ],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  origin: '*', // For testing, allow everything. Change to your frontend URL later.
   credentials: true,
 });
   
